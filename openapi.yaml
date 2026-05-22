@@ -1,0 +1,57 @@
+openapi: "3.0.3"
+info:
+  title: "Minha API"
+  version: "1.0.0"
+  description: "Meu primeiro CI/CD"
+servers:
+  - url: "https://api.validacao.com/v1"
+    description: "Produção"
+paths:
+  /tarefas:
+    get:
+      summary: "Listar testes"
+      operationId: "listTests"
+      tags: ["Testes"]
+      responses:
+        "200":
+          description: "Lista de Testes"
+    post:
+      summary: "Criar teste"
+      operationId: "createTests"
+      tags: ["Testes"]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Novoteste"
+      responses:
+        "201":
+          description: "Teste criado"
+        "400":
+          description: "Dados inválidos"
+  /Testes/{id}:
+    get:
+      summary: "Buscar testes"
+      operationId: "getTests"
+      tags: ["Testes"]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Encontrado"
+        "404":
+          description: "Não encontrado"
+components:
+  schemas:
+    NovaTarefa:
+      type: object
+      required: [titulo]
+      properties:
+        titulo:
+          type: string
+          example: "Meu primeiro teste"
