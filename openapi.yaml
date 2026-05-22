@@ -48,7 +48,7 @@ paths:
           description: "Não encontrado"
 components:
   schemas:
-    NovaTarefa:
+    Novoteste:
       type: object
       required: [titulo]
       properties:
