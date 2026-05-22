@@ -24,7 +24,7 @@ jobs:
 
       # Se o Spectral encontrar erros → pipeline PARA!
       - name: Validar OpenAPI com Spectral
-        run: npx --yes @stoplight/spectral-cli@6 lint openapi.yaml --ruleset https://unpkg.com/@stoplight/spectral-rulesets/dist/oas.js
+        run: npx --yes @stoplight/spectral-cli@6 lint openapi.yaml
 
   # ─── JOB 2: Publicar documentação ───
   # Só roda se o job "validar" passou!
