@@ -1,40 +1,40 @@
 openapi: "3.0.3"
 info:
-  title: "Minha API"
+  title: "Musiquinhas"
   version: "1.0.0"
-  description: "Meu primeiro CI/CD"
+  description: "API para musicas"
 servers:
-  - url: "https://api.validacao.com/v1"
+  - url: "https://api.musiquinhas.com/v1"
     description: "Produção"
 paths:
-  /tarefas:
+  /musica:
     get:
-      summary: "Listar testes"
+      summary: "Listar musicas"
       operationId: "listTests"
-      tags: ["Testes"]
+      tags: ["musicas"]
       responses:
         "200":
-          description: "Lista de Testes"
+          description: "Lista de Musicas"
     post:
-      summary: "Criar teste"
-      operationId: "createTests"
-      tags: ["Testes"]
+      summary: "Criar Musica"
+      operationId: "createMusica"
+      tags: ["musicas"]
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Novoteste"
+              $ref: "#/components/schemas/NovaMusica"
       responses:
         "201":
-          description: "Teste criado"
+          description: "Musica criada"
         "400":
           description: "Dados inválidos"
-  /Testes/{id}:
+  /Musica/{id}:
     get:
-      summary: "Buscar testes"
-      operationId: "getTests"
-      tags: ["Testes"]
+      summary: "Buscar musica"
+      operationId: "getMusica"
+      tags: ["musicas"]
       parameters:
         - name: id
           in: path
@@ -48,10 +48,10 @@ paths:
           description: "Não encontrado"
 components:
   schemas:
-    Novoteste:
+    NovaMusica:
       type: object
       required: [titulo]
       properties:
         titulo:
           type: string
-          example: "Meu primeiro teste"
+          example: "Minha musiquinhas"
